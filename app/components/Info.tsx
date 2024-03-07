@@ -22,8 +22,6 @@ interface infoData {
 }
 
 const renderInfo = (data: infoData) => {
-  console.log(data);
-
   return (
     <>
       <h1 className="text-3xl text-black pb-6">{data.name}</h1>

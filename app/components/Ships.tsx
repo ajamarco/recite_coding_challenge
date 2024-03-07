@@ -34,7 +34,6 @@ interface shipInfo {
 }
 
 const renderCards = (data: any[]) => {
-  console.log(data);
   return data.map((ship: shipInfo) => {
     return (
       <div key={ship.ship_id}>
