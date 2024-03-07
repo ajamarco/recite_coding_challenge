@@ -1,7 +1,12 @@
-import React from "react";
+//server side rendered component, which renders a client side rendered Mission component
+import Ship from "../components/Ships";
 
-const page = () => {
-  return <div>page</div>;
+const Ships = () => {
+  return (
+    <div>
+      <Ship />
+    </div>
+  );
 };
 
-export default page;
+export default Ships;
