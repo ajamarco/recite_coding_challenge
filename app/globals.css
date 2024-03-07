@@ -31,3 +31,7 @@ body {
     text-wrap: balance;
   }
 }
+
+.bg-sidebar {
+  background: #3d68ff;
+}
