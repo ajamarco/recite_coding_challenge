@@ -17,7 +17,7 @@ const Sidebar = () => {
           href="/"
           className="flex items-center active-nav-link text-white py-4 pl-6 nav-item"
         >
-          Dashboard
+          Home Page
         </Link>
         <Link
           href="/missions"

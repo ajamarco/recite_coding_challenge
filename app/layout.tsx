@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import Sidebar from "./components/Sidebar";
+
+import { Providers } from "./providers";
 
 export const metadata: Metadata = {
   title: "SpaceX Visualizer",
@@ -16,8 +17,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-gray-100 font-family-karla flex">
-        <Sidebar />
-        {children}
+        <Providers>
+          <Sidebar />
+          {children}
+        </Providers>
       </body>
     </html>
   );
