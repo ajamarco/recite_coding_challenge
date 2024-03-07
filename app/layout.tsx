@@ -19,7 +19,9 @@ export default function RootLayout({
       <body className="bg-gray-100 font-family-karla flex">
         <Providers>
           <Sidebar />
-          {children}
+          <div className="w-full h-screen overflow-x-hidden border-t flex flex-col">
+            <div className="w-full flex-grow p-6">{children}</div>
+          </div>
         </Providers>
       </body>
     </html>

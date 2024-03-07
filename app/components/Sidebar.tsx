@@ -25,6 +25,12 @@ const Sidebar = () => {
         >
           Missions
         </Link>
+        <Link
+          href="/ships"
+          className="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item"
+        >
+          Ships
+        </Link>
       </nav>
     </aside>
   );
