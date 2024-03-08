@@ -1,5 +1,7 @@
 # SpaceX Visualizer
 
+Demo: https://recite-coding-challenge.vercel.app/
+
 This project was done for the coding challenge for Recite Me. It was built using React, Next.js, and React-Query.
 
 It retrieves data from SpaceX API endpoints and displays them on the screen. All GET requests were made using React-Query.
