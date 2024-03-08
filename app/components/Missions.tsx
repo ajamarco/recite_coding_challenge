@@ -2,7 +2,6 @@
 
 import { useQuery } from "@tanstack/react-query";
 import MissionCard from "./MissionCard";
-import Grid from "./Grid";
 
 interface missionInfo {
   mission_name: string;

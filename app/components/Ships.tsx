@@ -1,6 +1,7 @@
 "use client";
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
+import Grid from "./Grid";
 
 interface shipInfo {
   ship_id: string;
@@ -35,9 +36,11 @@ interface shipInfo {
 }
 
 export default function Ship() {
+  //create a state to keep track of whether to show only active ships or not
   const [showActive, setShowActive] = useState(false);
 
-  const renderCards = (data: any[]) => {
+  const renderCards = (data: shipInfo[]) => {
+    console.log(data);
     //check if showActive is true, if it is, filter the data to only show active ships
     if (showActive) {
       data = data.filter((ship: shipInfo) => ship.active);
@@ -45,12 +48,22 @@ export default function Ship() {
     return data.map((ship: shipInfo) => {
       return (
         <div key={ship.ship_id}>
-          <h2>{ship.ship_name}</h2>
-          <p>{ship.ship_model}</p>
-          <p>{ship.active ? "Active" : "Inactive"}</p>
-          <p>{ship.home_port}</p>
-          <p>{ship.status}</p>
-          <img src={ship.image} alt={ship.ship_name} />
+          <div className="mx-3 mt-6 flex flex-col rounded-lg bg-white text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white sm:shrink-0 sm:grow sm:basis-0">
+            <img
+              className="rounded-t-lg"
+              src={ship.image}
+              alt={ship.ship_name}
+              style={{ height: "200px", objectFit: "cover" }}
+            />
+            <div className="p-6">
+              <h5 className="mb-2 text-xl font-medium leading-tight">
+                {ship.ship_name}
+              </h5>
+              <p className="mb-4 text-base">
+                Is ship active: {ship.active ? "Yes" : "No"}
+              </p>
+            </div>
+          </div>
         </div>
       );
     });
@@ -64,6 +77,6 @@ export default function Ship() {
   });
   if (error) return <div>Error</div>;
   if (!data) return <div>Loading...</div>;
-  if (data) return renderCards(data);
+  if (data) return <Grid>{renderCards(data)}</Grid>;
   return null;
 }
