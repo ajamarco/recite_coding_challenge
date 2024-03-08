@@ -1,7 +1,8 @@
 "use client";
+//sidebar component that displays the links to the different pages
 
+//import libraries
 import Link from "next/link";
-import React from "react";
 import { usePathname } from "next/navigation";
 
 const Sidebar = () => {

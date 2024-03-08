@@ -1,6 +1,11 @@
 "use client";
+
+//component that gets the info from the API and displays it
+
+//import the useQuery hook from react-query
 import { useQuery } from "@tanstack/react-query";
 
+//create an interface for the data that we will receive from the API
 interface infoData {
   summary: string;
   ceo: string;
@@ -21,6 +26,7 @@ interface infoData {
   vehicles: number;
 }
 
+//function to render the info from the API
 const renderInfo = (data: infoData) => {
   return (
     <>
@@ -39,15 +45,22 @@ const renderInfo = (data: infoData) => {
   );
 };
 
-export default function Ship() {
+export default function Info() {
+  //use the useQuery hook to get the data from the API
   const { data, error } = useQuery({
     queryKey: ["info"],
     queryFn: () =>
       fetch("https://api.spacexdata.com/v3/info").then((res) => res.json()),
     initialData: [],
   });
-  if (error) return <div>Error</div>;
-  if (!data) return <div>Loading...</div>;
+  if (error)
+    return (
+      <h1 className="text-3xl text-black pb-6 text-center">
+        An error has occurred {error.message}
+      </h1>
+    );
+  if (!data)
+    return <h1 className="text-3xl text-black pb-6 text-center">Loading...</h1>;
   if (data) return renderInfo(data);
   return null;
 }

@@ -1,10 +1,16 @@
 "use client";
+//component that gets the info from the Rockets API and displays it
+
+//import libraries
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
+
+//import components
 import Grid from "./Grid";
 import FilterActive from "./FilterActive";
 import ImageCard from "./ImageCard";
 
+//create an interface for the data that we will receive from the API
 interface rocketInfo {
   rocket_name: string;
   rocket_id: string;
@@ -15,13 +21,17 @@ interface rocketInfo {
 }
 
 export default function Rocket() {
-  const [showActive, setShowActive] = useState(false);
+  //create a state to keep track of whether to show only active rockets or not
+  const [showActive, setShowActive] = useState<boolean>(false);
 
+  //function to render the info from the API
   const renderCards = (data: rocketInfo[]) => {
     //check if showActive is true, if it is, filter the data to only show active ships
     if (showActive) {
       data = data.filter((rocket: rocketInfo) => rocket.active);
     }
+
+    //map through the data and create an ImageCard for each rocket
     return data.map((rocket: rocketInfo) => {
       return (
         <ImageCard
@@ -35,18 +45,26 @@ export default function Rocket() {
     });
   };
 
+  //function to handle the change of the radio button
   const handleFilterChange = (showActiveOnly: boolean) => {
     setShowActive(showActiveOnly);
   };
 
+  //use the useQuery hook to get the data from the API
   const { data, error } = useQuery({
     queryKey: ["rockets"],
     queryFn: () =>
       fetch("https://api.spacexdata.com/v3/rockets").then((res) => res.json()),
     initialData: [],
   });
-  if (error) return <div>Error</div>;
-  if (!data) return <div>Loading...</div>;
+  if (error)
+    return (
+      <h1 className="text-3xl text-black pb-6 text-center">
+        An error has occurred {error.message}
+      </h1>
+    );
+  if (!data)
+    return <h1 className="text-3xl text-black pb-6 text-center">Loading</h1>;
   if (data)
     return (
       <>

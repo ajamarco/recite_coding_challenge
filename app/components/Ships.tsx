@@ -1,10 +1,16 @@
 "use client";
+//component that gets the info from the Ships API and displays it
+
+//import libraries
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
+
+//import components
 import Grid from "./Grid";
 import ImageCard from "./ImageCard";
 import FilterActive from "./FilterActive";
 
+//create an interface for the data that we will receive from the API
 interface shipInfo {
   ship_id: string;
   ship_name: string;
@@ -41,6 +47,7 @@ export default function Ship() {
   //create a state to keep track of whether to show only active ships or not
   const [showActive, setShowActive] = useState(false);
 
+  //function to render the info from the API
   const renderCards = (data: shipInfo[]) => {
     //check if showActive is true, if it is, filter the data to only show active ships
     if (showActive) {
@@ -59,18 +66,26 @@ export default function Ship() {
     });
   };
 
+  //function to handle the change of the radio button
   const handleFilterChange = (showActiveOnly: boolean) => {
     setShowActive(showActiveOnly);
   };
 
+  //use the useQuery hook to get the data from the API
   const { data, error } = useQuery({
     queryKey: ["ships"],
     queryFn: () =>
       fetch("https://api.spacexdata.com/v3/ships").then((res) => res.json()),
     initialData: [],
   });
-  if (error) return <div>Error</div>;
-  if (!data) return <div>Loading...</div>;
+  if (error)
+    return (
+      <h1 className="text-3xl text-black pb-6 text-center">
+        An error has occurred {error.message}
+      </h1>
+    );
+  if (!data)
+    return <h1 className="text-3xl text-black pb-6 text-center">Loading...</h1>;
   if (data)
     return (
       <>

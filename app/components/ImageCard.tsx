@@ -1,5 +1,6 @@
-import React from "react";
+// Card component with image and text
 
+//setting up the props for the component
 interface CardProps {
   objId: string;
   name: string;
