@@ -2,6 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import MissionCard from "./MissionCard";
+import Grid from "./Grid";
 
 interface missionInfo {
   mission_name: string;
@@ -41,6 +42,12 @@ export default function Mission() {
   });
   if (error) return <div>Error</div>;
   if (!data) return <div>Loading...</div>;
-  if (data) return renderCards(data);
+  if (data)
+    return (
+      <>
+        <h1 className="text-3xl text-black pb-6 text-center">Missions</h1>
+        {renderCards(data)}
+      </>
+    );
   return null;
 }

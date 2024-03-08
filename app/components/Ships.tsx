@@ -1,5 +1,6 @@
 "use client";
 import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 
 interface shipInfo {
   ship_id: string;
@@ -33,22 +34,28 @@ interface shipInfo {
   image: string;
 }
 
-const renderCards = (data: any[]) => {
-  return data.map((ship: shipInfo) => {
-    return (
-      <div key={ship.ship_id}>
-        <h2>{ship.ship_name}</h2>
-        <p>{ship.ship_model}</p>
-        <p>{ship.active ? "Active" : "Inactive"}</p>
-        <p>{ship.home_port}</p>
-        <p>{ship.status}</p>
-        <img src={ship.image} alt={ship.ship_name} />
-      </div>
-    );
-  });
-};
-
 export default function Ship() {
+  const [showActive, setShowActive] = useState(false);
+
+  const renderCards = (data: any[]) => {
+    //check if showActive is true, if it is, filter the data to only show active ships
+    if (showActive) {
+      data = data.filter((ship: shipInfo) => ship.active);
+    }
+    return data.map((ship: shipInfo) => {
+      return (
+        <div key={ship.ship_id}>
+          <h2>{ship.ship_name}</h2>
+          <p>{ship.ship_model}</p>
+          <p>{ship.active ? "Active" : "Inactive"}</p>
+          <p>{ship.home_port}</p>
+          <p>{ship.status}</p>
+          <img src={ship.image} alt={ship.ship_name} />
+        </div>
+      );
+    });
+  };
+
   const { data, error } = useQuery({
     queryKey: ["ships"],
     queryFn: () =>

@@ -24,7 +24,7 @@ interface infoData {
 const renderInfo = (data: infoData) => {
   return (
     <>
-      <h1 className="text-3xl text-black pb-6">{data.name}</h1>
+      <h1 className="text-3xl text-black pb-6 text-center">{data.name}</h1>
       <p className="text-2xl text-black pb-6">{data.summary}</p>
       <p className="text-2xl text-black pb-6">
         {" "}
