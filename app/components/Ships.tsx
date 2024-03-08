@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import Grid from "./Grid";
 import ShipCard from "./ShipCard";
-import FilterShip from "./FilterShip";
+import FilterActive from "./FilterActive";
 
 interface shipInfo {
   ship_id: string;
@@ -47,7 +47,15 @@ export default function Ship() {
       data = data.filter((ship: shipInfo) => ship.active);
     }
     return data.map((ship: shipInfo) => {
-      return <ShipCard key={ship.ship_id} ship={ship} />;
+      return (
+        <ShipCard
+          key={ship.ship_id}
+          objId={ship.ship_id}
+          name={ship.ship_name}
+          image={ship.image}
+          active={ship.active}
+        />
+      );
     });
   };
 
@@ -67,7 +75,7 @@ export default function Ship() {
     return (
       <>
         <h1 className="text-3xl text-black pb-6 text-center">Ships</h1>
-        <FilterShip
+        <FilterActive
           showActive={showActive}
           onFilterChange={handleFilterChange}
           obj="Ships"

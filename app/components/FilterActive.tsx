@@ -4,7 +4,7 @@ interface FilterProps {
   obj: string;
 }
 
-const FilterShip: React.FC<FilterProps> = ({
+const FilterActive: React.FC<FilterProps> = ({
   showActive,
   onFilterChange,
   obj,
@@ -40,4 +40,4 @@ const FilterShip: React.FC<FilterProps> = ({
   );
 };
 
-export default FilterShip;
+export default FilterActive;
