@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# SpaceX Visualizer
 
-## Getting Started
+This project was done for the coding challenge for Recite Me. It was built using React, Next.js, and React-Query.
 
-First, run the development server:
+It retrieves data from SpaceX API endpoints and displays them on the screen. All GET requests were made using React-Query.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+It utilizes 4 different endpoints:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Info
+- Missions
+- Ships
+- Rockets
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Each page can be accessed using the sidebar, which also highlights the current page.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Ships and Rockets also have a filter to show only active objects - either ships or rockets. The same component is reused for these two objects.
 
-## Learn More
+## Next Steps
 
-To learn more about Next.js, take a look at the following resources:
+As the next steps for this project, there are a few features that could be implemented to make it more appealing:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Add a Google Maps integration to utilize the latitude and longitude from an object's response and display where it is on the map.
+- Use styled-components to easily manage active classes.
+- Add more endpoints, such as 'Dragons', 'Cores', and 'History'.
+- Implement additional filters, e.g., by name, date, or location.
+- Enhance the styles to make the project more visually engaging.
+- Optimize the use of React-Query and utilize it for pagination or infinite scrolling.
+- Incorporate a mobile layout for the project. Currently, the sidebar only shrinks when using a mobile device. Also, improve size management for components when viewed on mobile devices.
+- Ensure that accessibility is a top priority when preparing this project for production.
