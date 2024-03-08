@@ -70,6 +70,7 @@ export default function Ship() {
         <FilterShip
           showActive={showActive}
           onFilterChange={handleFilterChange}
+          obj="Ships"
         />
         <Grid>{renderCards(data)}</Grid>
       </>

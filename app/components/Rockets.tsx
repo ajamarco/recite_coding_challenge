@@ -1,5 +1,7 @@
 "use client";
 import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
+import Grid from "./Grid";
 
 interface rocketInfo {
   rocket_name: string;
@@ -7,9 +9,11 @@ interface rocketInfo {
   wikipedia: string;
   description: string;
   active: boolean;
+  flickr_images: string[];
 }
 
 const renderCards = (data: rocketInfo[]) => {
+  console.log(data);
   return data.map((rocket) => {
     return (
       <div key={rocket.rocket_id}>
@@ -17,12 +21,14 @@ const renderCards = (data: rocketInfo[]) => {
         <p>{rocket.description}</p>
         <a href={rocket.wikipedia}>Wikipedia</a>
         <p>{rocket.active ? "Active" : "Inactive"}</p>
+        <img src={rocket.flickr_images[0]} alt={rocket.rocket_name} />
       </div>
     );
   });
 };
 
 export default function Rocket() {
+  const [showActive, setShowActive] = useState(false);
   const { data, error } = useQuery({
     queryKey: ["rockets"],
     queryFn: () =>
@@ -31,6 +37,12 @@ export default function Rocket() {
   });
   if (error) return <div>Error</div>;
   if (!data) return <div>Loading...</div>;
-  if (data) return renderCards(data);
+  if (data)
+    return (
+      <>
+        <h1 className="text-3xl text-black pb-6 text-center">Rockets</h1>
+        <Grid>{renderCards(data)}</Grid>
+      </>
+    );
   return null;
 }

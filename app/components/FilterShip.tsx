@@ -1,9 +1,14 @@
 interface FilterProps {
   showActive: boolean;
   onFilterChange: (showAll: boolean) => void;
+  obj: string;
 }
 
-const FilterShip: React.FC<FilterProps> = ({ showActive, onFilterChange }) => {
+const FilterShip: React.FC<FilterProps> = ({
+  showActive,
+  onFilterChange,
+  obj,
+}) => {
   const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onFilterChange(e.target.value === "onlyActive");
   };
@@ -17,7 +22,7 @@ const FilterShip: React.FC<FilterProps> = ({ showActive, onFilterChange }) => {
             checked={!showActive}
             onChange={handleFilterChange}
           />
-          Show All Ships
+          Show All {obj}
         </label>
       </div>
       <div className="radio">
@@ -28,7 +33,7 @@ const FilterShip: React.FC<FilterProps> = ({ showActive, onFilterChange }) => {
             checked={showActive}
             onChange={handleFilterChange}
           />
-          Show Only Active Ships
+          Show Only Active {obj}
         </label>
       </div>
     </form>
