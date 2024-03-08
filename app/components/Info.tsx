@@ -29,11 +29,11 @@ const renderInfo = (data: infoData) => {
       <p className="text-2xl text-black pb-6">
         {" "}
         The founder of SpaceX is {data.founder} and it was founded in{" "}
-        {data.founded}
+        {data.founded}.
       </p>
       <p className="text-2xl text-black pb-6">
         {" "}
-        At the moment, it has over {data.employees} employees
+        At the moment, it has over {data.employees} employees.
       </p>
     </>
   );

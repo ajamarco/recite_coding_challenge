@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import Grid from "./Grid";
 import FilterActive from "./FilterActive";
-import ShipCard from "./ShipCard";
+import ImageCard from "./ImageCard";
 
 interface rocketInfo {
   rocket_name: string;
@@ -13,21 +13,6 @@ interface rocketInfo {
   active: boolean;
   flickr_images: string[];
 }
-
-// const renderCards = (data: rocketInfo[]) => {
-//   console.log(data);
-//   return data.map((rocket) => {
-//     return (
-//       <div key={rocket.rocket_id}>
-//         <h2>{rocket.rocket_name}</h2>
-//         <p>{rocket.description}</p>
-//         <a href={rocket.wikipedia}>Wikipedia</a>
-//         <p>{rocket.active ? "Active" : "Inactive"}</p>
-//         <img src={rocket.flickr_images[0]} alt={rocket.rocket_name} />
-//       </div>
-//     );
-//   });
-// };
 
 export default function Rocket() {
   const [showActive, setShowActive] = useState(false);
@@ -39,7 +24,7 @@ export default function Rocket() {
     }
     return data.map((rocket: rocketInfo) => {
       return (
-        <ShipCard
+        <ImageCard
           key={rocket.rocket_id}
           objId={rocket.rocket_id}
           name={rocket.rocket_name}

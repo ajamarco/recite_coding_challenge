@@ -2,7 +2,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import Grid from "./Grid";
-import ShipCard from "./ShipCard";
+import ImageCard from "./ImageCard";
 import FilterActive from "./FilterActive";
 
 interface shipInfo {
@@ -48,7 +48,7 @@ export default function Ship() {
     }
     return data.map((ship: shipInfo) => {
       return (
-        <ShipCard
+        <ImageCard
           key={ship.ship_id}
           objId={ship.ship_id}
           name={ship.ship_name}
