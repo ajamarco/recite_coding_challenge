@@ -10,6 +10,9 @@ import Grid from "./Grid";
 import ImageCard from "./ImageCard";
 import FilterActive from "./FilterActive";
 
+//import the ship_placeholder image from /public
+import shipPlaceholder from "../../public/ship_placeholder.jpg";
+
 //create an interface for the data that we will receive from the API
 interface shipInfo {
   ship_id: string;
@@ -59,7 +62,7 @@ export default function Ship() {
           key={ship.ship_id}
           objId={ship.ship_id}
           name={ship.ship_name}
-          image={ship.image}
+          image={ship.image ? ship.image : shipPlaceholder.src}
           active={ship.active}
         />
       );

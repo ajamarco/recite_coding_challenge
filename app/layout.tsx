@@ -20,7 +20,7 @@ export default function RootLayout({
       <body className="bg-gray-100 font-family-karla flex">
         <Providers>
           <Sidebar />
-          <div className="w-full flex flex-col h-screen overflow-y-hidden">
+          <div className="w-full h-screen overflow-x-hidden border-t flex flex-col">
             <Navbar />
             <div className="w-full flex-grow p-6">{children}</div>
           </div>
