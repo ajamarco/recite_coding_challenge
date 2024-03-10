@@ -1,34 +1,39 @@
 "use client";
-//sidebar component that displays the links to the different pages
 
-//import libraries
+// Navbar.tsx
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
-const Sidebar = () => {
-  //get the current pathname
+const Navbar = () => {
   const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
 
-  //save the classnames for the active and inactive links
   const activeLink =
-    "flex items-center active-nav-link text-white py-4 pl-6 nav-item";
+    "flex items-center active-nav-link text-white py-2 pl-4 nav-item";
   const inactiveLink =
-    "flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item";
+    "flex items-center text-white opacity-75 hover:opacity-100 py-2 pl-4 nav-item";
 
-  //manually saving the categories' names - this can come from an API
   const categories = ["Home Page", "Missions", "Ships", "Rockets"];
 
   return (
-    <aside className="relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
-      <div className="p-6">
-        <Link
-          href="/"
+    <header className="w-full bg-sidebar py-5 px-6 sm:hidden">
+      <div className="flex items-center justify-between">
+        <a
+          href="index.html"
           className="text-white text-3xl font-semibold uppercase hover:text-gray-300"
         >
           SpaceX Visualizer
-        </Link>
+        </a>
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="text-white text-3xl focus:outline-none"
+        >
+          <p className="text-3xl">☰</p>
+        </button>
       </div>
-      <nav className="text-white text-base font-semibold pt-3">
+
+      <nav className={isOpen ? "flex flex-col pt-4" : "hidden"}>
         {/* map through the categories object and display the links */}
         {categories.map((category) => (
           <Link
@@ -45,8 +50,8 @@ const Sidebar = () => {
           </Link>
         ))}
       </nav>
-    </aside>
+    </header>
   );
 };
 
-export default Sidebar;
+export default Navbar;

@@ -3,6 +3,7 @@ import "./globals.css";
 import Sidebar from "./components/Sidebar";
 
 import { Providers } from "./providers";
+import Navbar from "./components/Navbar";
 
 export const metadata: Metadata = {
   title: "SpaceX Visualizer",
@@ -19,7 +20,8 @@ export default function RootLayout({
       <body className="bg-gray-100 font-family-karla flex">
         <Providers>
           <Sidebar />
-          <div className="w-full h-screen overflow-x-hidden border-t flex flex-col">
+          <div className="w-full flex flex-col h-screen overflow-y-hidden">
+            <Navbar />
             <div className="w-full flex-grow p-6">{children}</div>
           </div>
         </Providers>
