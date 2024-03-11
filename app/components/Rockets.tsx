@@ -10,6 +10,9 @@ import Grid from "./Grid";
 import FilterActive from "./FilterActive";
 import ImageCard from "./ImageCard";
 
+//import the ship_placeholder image from /public
+import rocketPlaceholder from "../../public/rocket_placeholder.jpg";
+
 //create an interface for the data that we will receive from the API
 interface rocketInfo {
   rocket_name: string;
@@ -38,7 +41,11 @@ export default function Rocket() {
           key={rocket.rocket_id}
           objId={rocket.rocket_id}
           name={rocket.rocket_name}
-          image={rocket.flickr_images[0]}
+          image={
+            rocket.flickr_images.length > 0
+              ? rocket.flickr_images[0]
+              : rocketPlaceholder.src
+          }
           active={rocket.active}
         />
       );

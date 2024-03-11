@@ -21,6 +21,7 @@ Ships and Rockets also have a filter to show only active objects - either ships 
 
 As the next steps for this project, there are a few features that could be implemented to make it more appealing:
 
+- Ensure that accessibility is a top priority when preparing this project for production.
 - Add a Google Maps integration to utilize the latitude and longitude from an object's response and display where it is on the map.
 - Use styled-components to easily manage active classes.
 - Add more endpoints, such as 'Dragons', 'Cores', and 'History'.
@@ -28,4 +29,3 @@ As the next steps for this project, there are a few features that could be imple
 - Enhance the styles to make the project more visually engaging.
 - Optimize the use of React-Query and utilize it for pagination or infinite scrolling.
 - Incorporate a mobile layout for the project. Currently, the sidebar only shrinks when using a mobile device. Also, improve size management for components when viewed on mobile devices.
-- Ensure that accessibility is a top priority when preparing this project for production.
