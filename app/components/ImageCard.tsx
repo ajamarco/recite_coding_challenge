@@ -20,9 +20,7 @@ const ImageCard = ({ objId, name, image, active }: CardProps) => {
         />
         <div className="p-6">
           <h5 className="mb-2 text-xl font-medium leading-tight">{name}</h5>
-          <p className="mb-4 text-base">
-            Is ship active: {active ? "Yes" : "No"}
-          </p>
+          <p className="mb-4 text-base">Active: {active ? "Yes" : "No"}</p>
         </div>
       </div>
     </div>
