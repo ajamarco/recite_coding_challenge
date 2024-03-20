@@ -28,4 +28,4 @@ As the next steps for this project, there are a few features that could be imple
 - Implement additional filters, e.g., by name, date, or location.
 - Enhance the styles to make the project more visually engaging.
 - Optimize the use of React-Query and utilize it for pagination or infinite scrolling.
-- Incorporate a mobile layout for the project. Currently, the sidebar only shrinks when using a mobile device. Also, improve size management for components when viewed on mobile devices.
+- Create a modal to show when the user clicks on an image (either ship or rocket). This modal could contain more information from that image, adding a layout of interactivity to the application.
