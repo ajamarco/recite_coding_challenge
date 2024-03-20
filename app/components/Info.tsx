@@ -4,6 +4,7 @@
 
 //import the useQuery hook from react-query
 import { useQuery } from "@tanstack/react-query";
+import Spinner from "./Spinner";
 
 //create an interface for the data that we will receive from the API
 interface infoData {
@@ -59,7 +60,13 @@ export default function Info() {
       </h1>
     );
   if (!data)
-    return <h1 className="text-3xl text-black pb-6 text-center">Loading...</h1>;
+    return (
+      <>
+        <Spinner />
+        <h1 className="text-3xl text-black pb-6 text-center">Loading...</h1>
+      </>
+    );
+
   if (data) return renderInfo(data);
   return null;
 }

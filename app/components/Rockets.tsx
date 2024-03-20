@@ -12,6 +12,7 @@ import ImageCard from "./ImageCard";
 
 //import the ship_placeholder image from /public
 import rocketPlaceholder from "../../public/rocket_placeholder.jpg";
+import Spinner from "./Spinner";
 
 //create an interface for the data that we will receive from the API
 interface rocketInfo {
@@ -70,7 +71,12 @@ export default function Rocket() {
       </h1>
     );
   if (!data)
-    return <h1 className="text-3xl text-black pb-6 text-center">Loading</h1>;
+    return (
+      <>
+        <Spinner />
+        <h1 className="text-3xl text-black pb-6 text-center">Loading...</h1>
+      </>
+    );
   if (data)
     return (
       <>

@@ -5,6 +5,7 @@
 //import the useQuery hook from react-query and the MissionCard component
 import { useQuery } from "@tanstack/react-query";
 import MissionCard from "./MissionCard";
+import Spinner from "./Spinner";
 
 //create an interface for the data that we will receive from the API
 interface missionInfo {
@@ -51,7 +52,12 @@ export default function Mission() {
       </h1>
     );
   if (!data)
-    return <h1 className="text-3xl text-black pb-6 text-center">Loading...</h1>;
+    return (
+      <>
+        <Spinner />
+        <h1 className="text-3xl text-black pb-6 text-center">Loading...</h1>
+      </>
+    );
   if (data)
     return (
       <>
