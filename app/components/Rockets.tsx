@@ -62,7 +62,6 @@ export default function Rocket() {
     queryKey: ["rockets"],
     queryFn: () =>
       fetch("https://api.spacexdata.com/v3/rockets").then((res) => res.json()),
-    initialData: [],
   });
   if (error)
     return (

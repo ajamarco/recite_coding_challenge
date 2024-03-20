@@ -51,7 +51,6 @@ export default function Info() {
     queryKey: ["info"],
     queryFn: () =>
       fetch("https://api.spacexdata.com/v3/info").then((res) => res.json()),
-    initialData: [],
   });
   if (error)
     return (

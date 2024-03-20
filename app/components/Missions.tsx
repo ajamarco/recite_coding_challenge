@@ -43,7 +43,6 @@ export default function Mission() {
     queryKey: ["missions"],
     queryFn: () =>
       fetch("https://api.spacexdata.com/v3/missions").then((res) => res.json()),
-    initialData: [],
   });
   if (error)
     return (

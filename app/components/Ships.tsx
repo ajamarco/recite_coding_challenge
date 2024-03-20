@@ -79,7 +79,6 @@ export default function Ship() {
     queryKey: ["ships"],
     queryFn: () =>
       fetch("https://api.spacexdata.com/v3/ships").then((res) => res.json()),
-    initialData: [],
   });
   if (error)
     return (
